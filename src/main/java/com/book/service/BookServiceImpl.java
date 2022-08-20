@@ -64,6 +64,13 @@ public class BookServiceImpl implements IBookService {
 		bookRepository.save(existingBook);
 		return existingBook;
 	}
+
+	@Override
+	public Optional<Books> getBookbyaid(Integer aid) {
+		// TODO Auto-generated method stub
+		
+		return bookRepository.findByaId(aid);
+	}
 }
 
 	

@@ -19,4 +19,6 @@ public interface IBookService {
 	void deleteallBooks();
 
 	Books updateBook(Books book, Integer id);
+
+	Optional<Books> getBookbyaid(Integer aid);
 }

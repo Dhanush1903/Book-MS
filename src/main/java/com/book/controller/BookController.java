@@ -41,6 +41,13 @@ public class BookController {
 		return book;
 	}
 	
+	@GetMapping("/getbookbyaId/{aid}")
+	public Optional<Books> getBookbyaid(@PathVariable Integer aid){
+		Optional<Books> book = bookService.getBookbyaid(aid);
+		return book;
+	}
+	
+	
 	@DeleteMapping("/book/{id}")
 	public ResponseEntity<Books> deleteBook(@PathVariable Integer id){
 		System.out.println(id);
