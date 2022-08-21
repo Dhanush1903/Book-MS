@@ -42,8 +42,8 @@ public class BookController {
 	}
 	
 	@GetMapping("/getbookbyaId/{aid}")
-	public Optional<Books> getBookbyaid(@PathVariable Integer aid){
-		Optional<Books> book = bookService.getBookbyaid(aid);
+	public List<Books> getBookbyaid(@PathVariable Integer aid){
+		List<Books> book = bookService.getBookbyaid(aid);
 		return book;
 	}
 	

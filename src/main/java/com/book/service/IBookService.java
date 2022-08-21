@@ -20,5 +20,5 @@ public interface IBookService {
 
 	Books updateBook(Books book, Integer id);
 
-	Optional<Books> getBookbyaid(Integer aid);
+	List<Books> getBookbyaid(Integer aid);
 }

@@ -66,7 +66,7 @@ public class BookServiceImpl implements IBookService {
 	}
 
 	@Override
-	public Optional<Books> getBookbyaid(Integer aid) {
+	public List<Books> getBookbyaid(Integer aid) {
 		// TODO Auto-generated method stub
 		
 		return bookRepository.findByaId(aid);

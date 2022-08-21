@@ -1,5 +1,6 @@
 package com.book.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +12,7 @@ public interface IBookRepository extends JpaRepository<Books, Integer>{
 	
 	
 	@Query(value = "SELECT * FROM books.books WHERE a_id=?1", nativeQuery = true)
-	public Optional<Books> findByaId(Integer aid);
+	public List<Books> findByaId(Integer aid);
 	
 	
 	
