@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.book.entity.Books;
@@ -25,7 +26,6 @@ public class BookController {
 	@PostMapping("/book")
 	Integer createBook(@RequestBody Books book) {
 		Integer id= bookService.saveBook(book);
-		System.out.println(id);
 		return id;
 	}
 	
@@ -45,6 +45,14 @@ public class BookController {
 	public List<Books> getBookbyaid(@PathVariable Integer aid){
 		List<Books> book = bookService.getBookbyaid(aid);
 		return book;
+	}
+	
+	
+	@GetMapping("/searchbooks")
+	public List<Books> searchbooks(@RequestParam("category") String category,
+			@RequestParam("authorName") String authorName, @RequestParam("price") long price){
+				return bookService.searchbooks(category,authorName,price);
+	
 	}
 	
 	

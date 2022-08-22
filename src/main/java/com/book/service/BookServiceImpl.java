@@ -3,6 +3,7 @@ package com.book.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,7 +53,7 @@ public class BookServiceImpl implements IBookService {
 		Books existingBook = bookRepository.findById(id).orElseThrow(
 				()-> new ResourceNotFoundException("Employee", "id", id));
 				
-		existingBook.setAuthorUserName(book.getAuthorUserName());;
+		existingBook.setAuthorName(book.getAuthorName());
 		existingBook.setActive(book.getActive());
 		existingBook.setCategory(book.getCategory());
 		existingBook.setContent(book.getContent());
@@ -70,6 +71,15 @@ public class BookServiceImpl implements IBookService {
 		// TODO Auto-generated method stub
 		
 		return bookRepository.findByaId(aid);
+	}
+
+	@Override
+	public List<Books> searchbooks(String category, String authorName, long price) {
+		List<Books> booklist=	bookRepository.findAll();
+		return booklist.stream().filter(n->n.getCategory().equalsIgnoreCase(category) ||
+				n.getAuthorName().equalsIgnoreCase(authorName) || 
+				n.getPrice().equals(price))
+				.collect(Collectors.toList());
 	}
 }
 

@@ -14,11 +14,11 @@ public class Books {
 		private String title;
 		private String category;
 		private String image;
-		private long price;
+		private Long price;
 		private String publisher;
 		private Boolean active;
 		private String content;
-		private String authorUserName;
+		private String authorName;
 		private Integer aId;
 		public Integer getId() {
 			return id;
@@ -44,10 +44,10 @@ public class Books {
 		public void setImage(String image) {
 			this.image = image;
 		}
-		public long getPrice() {
+		public Long getPrice() {
 			return price;
 		}
-		public void setPrice(long price) {
+		public void setPrice(Long price) {
 			this.price = price;
 		}
 		public String getPublisher() {
@@ -68,11 +68,11 @@ public class Books {
 		public void setContent(String content) {
 			this.content = content;
 		}
-		public String getAuthorUserName() {
-			return authorUserName;
+		public String getAuthorName() {
+			return authorName;
 		}
-		public void setAuthorUserName(String authorUserName) {
-			this.authorUserName = authorUserName;
+		public void setAuthorName(String authorName) {
+			this.authorName = authorName;
 		}
 		public Integer getaId() {
 			return aId;
@@ -80,8 +80,8 @@ public class Books {
 		public void setaId(Integer aId) {
 			this.aId = aId;
 		}
-		public Books(Integer id, String title, String category, String image, long price, String publisher,
-				Boolean active, String content, String authorUserName, Integer aId) {
+		public Books(Integer id, String title, String category, String image, Long price, String publisher,
+				Boolean active, String content, String authorName, Integer aId) {
 			super();
 			this.id = id;
 			this.title = title;
@@ -91,11 +91,14 @@ public class Books {
 			this.publisher = publisher;
 			this.active = active;
 			this.content = content;
-			this.authorUserName = authorUserName;
+			this.authorName = authorName;
 			this.aId = aId;
 		}
 		public Books() {
 			super();
 		}
+		
+		
+		
 		
 }
