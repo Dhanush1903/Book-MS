@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.book.entity.Books;
 import com.book.service.IBookService;
-
+@CrossOrigin
 @RestController
 public class BookController {
 	@Autowired
@@ -41,16 +42,17 @@ public class BookController {
 		return book;
 	}
 	
-	@GetMapping("/getbookbyaId/{aid}")
-	public List<Books> getBookbyaid(@PathVariable Integer aid){
-		List<Books> book = bookService.getBookbyaid(aid);
+	@GetMapping("/getbookbyemail/{email}")
+	public List<Books> getBookbyaid(@PathVariable String email){
+		List<Books> book = bookService.getBookbyemail(email);
 		return book;
 	}
 	
 	
 	@GetMapping("/searchbooks")
-	public List<Books> searchbooks(@RequestParam("category") String category,
-			@RequestParam("authorName") String authorName, @RequestParam("price") long price){
+	public List<Books> searchbooks(@RequestParam(name = "category",required = false)  String category,
+			@RequestParam (name = "authorName",required = false) String authorName,
+			@RequestParam  (name = "price",required = false) Long price){
 				return bookService.searchbooks(category,authorName,price);
 	
 	}

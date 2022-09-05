@@ -11,8 +11,8 @@ import com.book.entity.Books;
 public interface IBookRepository extends JpaRepository<Books, Integer>{
 	
 	
-	@Query(value = "SELECT * FROM books.books WHERE a_id=?1", nativeQuery = true)
-	public List<Books> findByaId(Integer aid);
+	@Query(value = "SELECT * FROM books.books WHERE email=?1", nativeQuery = true)
+	public List<Books> findByemail(String email);
 	
 	
 	

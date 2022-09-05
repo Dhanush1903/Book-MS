@@ -67,10 +67,10 @@ public class BookServiceImpl implements IBookService {
 	}
 
 	@Override
-	public List<Books> getBookbyaid(Integer aid) {
+	public List<Books> getBookbyemail(String email) {
 		// TODO Auto-generated method stub
 		
-		return bookRepository.findByaId(aid);
+		return bookRepository.findByemail(email);
 	}
 
 	@Override

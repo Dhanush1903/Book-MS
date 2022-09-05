@@ -20,7 +20,11 @@ public interface IBookService {
 
 	Books updateBook(Books book, Integer id);
 
-	List<Books> getBookbyaid(Integer aid);
+	
 
 	List<Books> searchbooks(String category, String authorName, long price);
+
+
+
+	List<Books> getBookbyemail(String email);
 }
